@@ -1,4 +1,7 @@
-# GitHub Check-in Process
+# About Panna and what we are developing
+- We are building a beautiful solution - read here (https://github.com/pannacodebase/panna/wiki)
+
+# DevOps Process
 
 ## Using GitHub Desktop:
 
