@@ -1,5 +1,7 @@
 # About Panna and what we are developing
-- We are building a beautiful solution - read here (https://github.com/pannacodebase/panna/wiki)
+- The primary objective of the Paññā platform is to establish a secure and empowering space for Autistic individuals, parents, and caregivers. The platform is designed to facilitate information exchange, learning, and engagement within the autism community. Paññā's innovative chatbot addresses queries and provides a supportive environment for caregivers and the entire autism community.
+
+- read here (https://github.com/pannacodebase/panna/wiki)
 
 # DevOps Process
 
