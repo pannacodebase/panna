@@ -1,0 +1,58 @@
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.message-container {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #d1ecf1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.bot-message {
+    background-color: #cce5ff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#input-container {
+    margin-top: 20px;
+    /* Add margin at the top */
+}
+
+/* Add this to your existing CSS file or style tag */
+.card-panel-container {
+    display: flex;
+    flex-direction: row;
+    /* Change to row to position cards horizontally */
+    align-items: flex-start;
+    /* Align cards to the top of the panel */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    margin-top: 20px;
+    /* Add margin at the top of the card panel */
+}
+
+.card {
+    background-color: #cce5ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    /* Add margin between cards */
+    height: 100px;
+    /* Set the height of the cards */
+    flex-shrink: 0;
+    /* Prevent cards from shrinking if too many */
+}
+
