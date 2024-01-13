@@ -1,16 +1,17 @@
 import os
 import logging
 import psycopg2
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
+from dotenv import load_dotenv
 
 # Configure logging
 logging.basicConfig(filename='file_processing.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Database connection details
-DB_HOST = 'your_database_host'
-DB_NAME = 'your_database_name'
-DB_USER = 'your_database_username'
-DB_PASS = 'your_database_password'
+DB_HOST = os.getenv("DATABASE_HOST")
+DB_NAME = os.getenv("DATABASE_USER")
+DB_USER = os.getenv("DATABASE_USER")
+DB_PASS = os.getenv("DATABASE_PASSWORD")
 
 def log_to_db(file_path, status, error_message=None):
     try:
@@ -38,12 +39,13 @@ def process_text_file(file_path):
 def process_pdf_file(file_path):
     try:
         with open(file_path, 'rb') as file:
-            pdf = PdfFileReader(file)
+            pdf = PdfReader(file)
             text = ''
-            for page_num in range(pdf.numPages):
-                text += pdf.getPage(page_num).extractText()
+            for page_num in range(len(pdf.pages)):
+                text += pdf.pages[page_num].extract_text()
         # Further processing can be added here
         log_to_db(file_path, 'Success')
+        print(text)
         return text
     except Exception as e:
         logging.error(f"Error processing PDF file {file_path}: {e}")
@@ -59,6 +61,7 @@ def process_audio_video_file(file_path):
         log_to_db(file_path, 'Error', str(e))
 
 def scan_directory(directory_path):
+    print('inside scan directory')
     for root, dirs, files in os.walk(directory_path):
         for file in files:
             file_path = os.path.join(root, file)
@@ -77,4 +80,4 @@ def scan_directory(directory_path):
                 log_to_db(file_path, 'Error', str(e))
 
 # Example usage
-scan_directory('/path/to/your/directory')
+scan_directory('E:\Project Panna\dataset')

@@ -1,0 +1,4 @@
+# .gitignore
+
+# Exclude specific log file
+file_processing.log
