@@ -65,7 +65,7 @@ def store_in_pinecone(prompt, response):
 def call_perplexity_api(prompt):
     payload = {
         "model": "mistral-7b-instruct",
-        "messages": [{"role": "system", "content": prompt}],
+        "messages": [{"role": "system", "content": "Include real-world case studies or us and cases for better understanding and Include all relevant information, even if it's lengthy"},{"role": "user", "content": prompt}],
         "max_tokens": 0,
         "temperature": 1,
         "top_p": 1,
@@ -90,4 +90,5 @@ def call_perplexity_api(prompt):
         return str(e)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    #app.run(debug=True, port=5000)
