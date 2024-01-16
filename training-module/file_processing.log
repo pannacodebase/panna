@@ -1,0 +1,12 @@
+2024-01-16 16:10:04,181:<module>:INFO:The environment is:  dev
+2024-01-16 16:10:04,212:connect_to_db:INFO:Connected to Postgress DB
+2024-01-16 16:10:12,041:log_to_db:INFO:Started Writing
+2024-01-16 16:10:12,048:log_to_db:INFO:End Writing
+2024-01-16 16:10:16,262:log_to_db:INFO:Started Writing
+2024-01-16 16:10:16,265:log_to_db:INFO:End Writing
+2024-01-16 16:15:38,044:<module>:INFO:The environment is:  dev
+2024-01-16 16:15:38,074:connect_to_db:INFO:Connected to Postgress DB
+2024-01-16 16:15:53,377:log_to_db:INFO:Started Writing
+2024-01-16 16:15:53,384:log_to_db:INFO:End Writing
+2024-01-16 16:15:57,933:log_to_db:INFO:Started Writing
+2024-01-16 16:15:57,937:log_to_db:INFO:End Writing
