@@ -49,13 +49,14 @@ if __name__ == "__main__":
     logging.info (f"The environment is:  {environment}")
     try:
         config_data = read_config(environment)
+        directory = config_data ['directory_to_scan']
         connection = connect_to_db (config_data)
         if isinstance(connection, str):
             # Handle the error
             logging.error(f"Error in DB connection {connection}")
         else:
             print ("Started Scanning")
-            scan_directory('/Users/aaaa/Downloads/Test/', config_data,connection)
+            scan_directory('directory', config_data,connection)
             print ("Scanning Completed")
             connection.close()
     except ValueError as e:
