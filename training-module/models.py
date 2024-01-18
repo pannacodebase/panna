@@ -18,16 +18,15 @@ def generate_document_vector_bert (text, config):
     return embeddings
 
 
+
 def generate_document_vector_openai (text, config):
     openai.api_key = config ['openai.api_key']
-    response = openai.Completion.create(
+    response = openai.Embedding.create(
         engine="text-embedding-ada-002",
-        prompt=text,
-        temperature=0,
-        max_tokens=768,
-        n=1,
-    )
-    embeddings = response['choices'][0]['text']
+        input=text
+         )
+    embeddings = response['data'][0]['embedding']
+    
     return embeddings
 
 
