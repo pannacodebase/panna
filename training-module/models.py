@@ -15,7 +15,9 @@ def generate_document_vector_bert (text, config):
     with torch.no_grad():
         output = model(**tokens)
     embeddings = output.last_hidden_state.mean(dim=1).squeeze().numpy()
-    return embeddings
+    serial_vector = embeddings.tolist()
+
+    return serial_vector
 
 
 
