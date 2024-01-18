@@ -32,7 +32,7 @@ def process_pdf_file(file_path,config_data,connection):
             method = globals().get(method_name)
             vector = ''
             if method is not None and callable(method):
-                vector = generate_document_vector_bert (text)
+                vector = method (text,config_data)
             else :
                 logging.error(f"Unknown modelling technique")
                 return 
