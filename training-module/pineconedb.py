@@ -5,7 +5,7 @@ import logging
 
 vector_dimension_map = {
     'BERT':768,
-    'OPENAI': 768
+    'OPENAI': 1536
 }
 
 # Function to store vector in Pinecone
@@ -29,7 +29,7 @@ def store_vector_in_pinecone(key, model, filetype, vector, identifier, metadata)
     # Index the vector in Pinecone
     try:
         # Need to check if for OpenAI the below serialization is required
-        serial_vector = vector.tolist()
+        serial_vector = vector
         upserts = [(str(identifier), serial_vector)]
         index.upsert(vectors=upserts)
         return
