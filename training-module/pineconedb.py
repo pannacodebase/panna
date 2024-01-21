@@ -28,9 +28,8 @@ def store_vector_in_pinecone(key, model, filetype, vector, identifier, metadata)
     index = pinecone.Index(PINECONE_INDEX_NAME)
     # Index the vector in Pinecone
     try:
-        # Need to check if for OpenAI the below serialization is required
-        serial_vector = vector
-        upserts = [(str(identifier), serial_vector)]
+        logging.info ("Writing to Pinecone")
+        upserts = [(str(identifier), vector,metadata)]
         index.upsert(vectors=upserts)
         return
     except Exception as e:
