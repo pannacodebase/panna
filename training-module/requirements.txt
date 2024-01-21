@@ -8,3 +8,6 @@ torch==2.1.2
 uuid==
 pinecone-client==2.2.4
 configparser==6.0.0
+openai==1.8.0
+tiktoken==0.5.2
+pytest-shutil==1.7.0
