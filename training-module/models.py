@@ -1,6 +1,7 @@
 from transformers import BertModel, BertTokenizer
 import torch
 import openai
+import tiktoken
 
 #All the vector embedding Models
 
@@ -22,14 +23,23 @@ def generate_document_vector_bert (text, config):
 
 
 def generate_document_vector_openai (text, config):
+
+    truncated_token = truncate_text_tokens (text, config ['open_ai_pdf_embedding_encoding'] , int(config ['open_ai_pdf_embedding_ctx_length']) )
     openai.api_key = config ['openai.api_key']
     response = openai.Embedding.create(
-        engine="text-embedding-ada-002",
-        input=text
+        engine= config ['open_ai_pdf_embedding_model'],
+        max_tokens= 2000,
+        input=truncated_token
          )
     embeddings = response['data'][0]['embedding']
-    
+    print (len(embeddings))
     return embeddings
+
+def truncate_text_tokens(text, encoding_name, max_tokens):
+    # runcate a string to have `max_tokens` according to the given encoding
+    encoding = tiktoken.get_encoding(encoding_name)
+    return encoding.encode(text)[:max_tokens]
+
 
 
      
